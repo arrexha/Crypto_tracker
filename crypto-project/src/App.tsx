@@ -1,0 +1,36 @@
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router";
+import { AuthProvider } from "./context/AuthContext";
+import { FavoritesProvider } from "./context/FavoritesContext";
+import { ThemeProvider } from "./context/ThemeContext";
+
+const Home = lazy(() => import("./pages/Home").then(module => ({ default: module.Home })));
+const CoinDetail = lazy(() => import("./pages/CoinDetail").then(module => ({ default: module.CoinDetail })));
+const Login = lazy(() => import("./pages/Auth/Login").then(module => ({ default: module.Login })));
+const Register = lazy(() => import("./pages/Auth/Register").then(module => ({ default: module.Register })));
+
+const LoadingFallback = () => null;
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AuthProvider>
+        <FavoritesProvider>
+          <BrowserRouter>
+            <Suspense fallback={<LoadingFallback />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/coin/:id" element={<CoinDetail />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </FavoritesProvider>
+      </AuthProvider>
+    </ThemeProvider>
+  );
+}
+
+export default App;
