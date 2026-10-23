@@ -15,7 +15,7 @@ export const FavoriteButton = ({ cryptoId, className = '' }: FavoriteButtonProps
   const active = isFavorite(cryptoId);
 
   const handleClick = (e: MouseEvent) => {
-    // The button sits inside the card's <Link>; don't navigate to the coin
+   
     e.preventDefault();
     e.stopPropagation();
 

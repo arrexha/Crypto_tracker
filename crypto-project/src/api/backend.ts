@@ -2,7 +2,6 @@ import { AuthResponse, LoginCredentials, RegisterCredentials } from '../types';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
 
-// fetch() only throws (TypeError: "Failed to fetch") when the server can't be reached at all
 const originalFetch = globalThis.fetch;
 const fetch: typeof originalFetch = async (...args) => {
   try {

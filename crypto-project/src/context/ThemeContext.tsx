@@ -25,7 +25,7 @@ export const useTheme = () => {
   return context;
 };
 
-// index.html sets data-theme before React loads (avoids a flash of the wrong theme)
+
 const getInitialTheme = (): Theme => {
   const current = document.documentElement.dataset.theme;
   return THEMES.some((t) => t.value === current) ? (current as Theme) : 'light';
@@ -39,12 +39,12 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setThemeState] = useState<Theme>(getInitialTheme);
 
   const setTheme = (next: Theme) => {
-    // Apply synchronously so components reading CSS variables during render see the new values
+   
     document.documentElement.dataset.theme = next;
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch {
-      // Storage unavailable (private mode); theme still applies for this visit
+     
     }
     setThemeState(next);
   };
@@ -52,7 +52,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 };
 
-/** Reads a theme color as a CSS color string, for libraries that need real values (e.g. Recharts). */
+
 export const themeColor = (name: string, alpha = 1) => {
   const rgb = getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
   return `rgb(${rgb} / ${alpha})`;

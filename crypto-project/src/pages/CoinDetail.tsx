@@ -18,7 +18,7 @@ import { useTheme, themeColor } from "../context/ThemeContext";
 export const CoinDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  useTheme(); // re-render the chart with new colors when the theme changes
+  useTheme(); 
   const [coin, setCoin] = useState<CoinDetailData | null>(null);
   const [chartData, setChartData] = useState<ChartDataPoint[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);

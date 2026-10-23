@@ -3,9 +3,7 @@ import { CryptoData, CoinDetailData, ChartApiResponse } from "../types";
 const BASE_URL = "https://api.coingecko.com/api/v3";
 const CACHE_TTL_MS = 60_000;
 
-// CoinGecko's free tier rate-limits quickly, and its 429 responses have no CORS headers,
-// so the browser reports them as a generic "Failed to fetch". Cache responses briefly and
-// translate network failures into a message that says what actually happened.
+
 const cache = new Map<string, { time: number; data: unknown }>();
 
 const fetchJson = async <T>(path: string, errorMessage: string): Promise<T> => {
