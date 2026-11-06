@@ -12,7 +12,7 @@ interface HeaderProps {
 
 export const Header = ({ 
   title = "Crypto Tracker", 
-  subtitle = "Real-time cryptocurrency prices and market data",
+  subtitle = "Track prices, charts and your favorite coins",
   onSearch
 }: HeaderProps) => {
   const { logout, isAuthenticated } = useAuth();
