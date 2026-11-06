@@ -54,22 +54,6 @@
   --shadow: 0 0 0;
 }
 
-[data-theme="midnight"] {
-  color-scheme: dark;
-  --bg: 11 17 32;
-  --surface: 17 26 46;
-  --surface-2: 30 41 66;
-  --line: 41 56 87;
-  --fg: 226 232 240;
-  --fg-muted: 148 163 184;
-  --fg-subtle: 100 116 139;
-  --accent: 96 165 250;
-  --accent-hover: 147 197 253;
-  --accent-fg: 11 17 32;
-  --up: 52 211 153;
-  --down: 251 113 133;
-  --shadow: 2 6 23;
-}
 
 body {
   background-color: rgb(var(--bg));

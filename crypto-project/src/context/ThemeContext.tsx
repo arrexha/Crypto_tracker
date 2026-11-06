@@ -1,11 +1,10 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 
-export type Theme = 'light' | 'dark' | 'midnight';
+export type Theme = 'light' | 'dark';
 
 export const THEMES: { value: Theme; label: string }[] = [
   { value: 'light', label: 'Light' },
   { value: 'dark', label: 'Dark' },
-  { value: 'midnight', label: 'Midnight' },
 ];
 
 const STORAGE_KEY = 'theme';
