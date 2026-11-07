@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router';
 import { useAuth } from '../context/AuthContext';
 import { useState } from 'react';
 import { ThemeSwitcher } from './ThemeSwitcher';
+import { Logo } from './Logo';
 
 interface HeaderProps {
   title?: string;
@@ -40,9 +41,12 @@ export const Header = ({
     <header className="bg-bg border-b border-line sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex flex-wrap justify-between items-center gap-3 mb-4">
-          <div>
-            <h1 className="text-2xl font-bold text-fg">{title}</h1>
-            <p className="text-fg-muted text-sm">{subtitle}</p>
+          <div className="flex items-center gap-3">
+            <Logo className="w-10 h-10 shrink-0" />
+            <div>
+              <h1 className="text-2xl font-bold text-fg">{title}</h1>
+              <p className="text-fg-muted text-sm">{subtitle}</p>
+            </div>
           </div>
 
           <div className="flex items-center gap-3">
